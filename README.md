@@ -1,3 +1,5 @@
+https://github.com/user-attachments/assets/e0c03f41-356c-47ec-929f-297a46891aa9
+
 # Fastfetch Anime Themes
 
 A collection of Fastfetch themes with an interactive selector and sequential image display.
@@ -17,8 +19,6 @@ A collection of Fastfetch themes with an interactive selector and sequential ima
    cd ffthemes
    mkdir -p ~/.config/fastfetch
    cp -rv * ~/.config/fastfetch/
-   cd ..
-   rm -rf ffthemes
    ```
 
 2. **Make the scripts executable:**
