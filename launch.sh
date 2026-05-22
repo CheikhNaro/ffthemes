@@ -17,9 +17,9 @@ if [ ! -d "$THEME_DIR" ]; then
     exit 0
 fi
 
-# ─── Sélection séquentielle (PNG + GIF) ───
+# ─── Sélection séquentielle (PNG + GIF + JPG + WEBP) ───
 mapfile -t images < <(
-    find "$THEME_DIR" -maxdepth 1 \( -name "*.png" -o -name "*.gif" \) -exec basename {} \; | sort -V
+    find "$THEME_DIR" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) -exec basename {} \; | sort -V
 )
 
 if [ ${#images[@]} -eq 0 ]; then

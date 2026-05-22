@@ -8,7 +8,7 @@ STATE_FILE="$CONFIG_DIR/current_state"
 get_themes() {
     for dir in "$THEMES_DIR"/*/; do
         [ -d "$dir" ] || continue
-        count=$(find "$dir" -maxdepth 1 \( -name "*.png" -o -name "*.gif" \) 2>/dev/null | wc -l)
+        count=$(find "$dir" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) 2>/dev/null | wc -l)
         [ "$count" -gt 0 ] && basename "$dir"
     done | sort
 }
@@ -29,7 +29,7 @@ find_theme() {
 apply_theme() {
     local THEME="$1"
     local count
-    count=$(find "$THEMES_DIR/$THEME" -maxdepth 1 \( -name "*.png" -o -name "*.gif" \) | wc -l)
+    count=$(find "$THEMES_DIR/$THEME" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | wc -l)
     echo "$THEME" > "$THEME_FILE"
     rm -f "$STATE_FILE"
     echo "Theme applied → $THEME ($count images)"
@@ -46,7 +46,7 @@ if [ -z "$1" ]; then
 
     options=()
     for theme in $(get_themes); do
-        count=$(find "$THEMES_DIR/$theme" -maxdepth 1 -name "*.png" | wc -l)
+        count=$(find "$THEMES_DIR/$theme" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | wc -l)
         if [ "$theme" = "$current" ]; then
             options+=("$theme  ($count images) ✓")
         else
