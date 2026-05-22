@@ -1,4 +1,5 @@
-https://github.com/user-attachments/assets/e0c03f41-356c-47ec-929f-297a46891aa9
+https://github.com/user-attachments/assets/43485a87-a9a7-4221-a5d7-df082bb19041
+
 
 # Fastfetch Anime Themes
 
