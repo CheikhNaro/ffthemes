@@ -78,7 +78,7 @@ if [ -z "$1" ]; then
 
     # ─── Relancer zsh pour appliquer le thème immédiatement ───
     echo "Shell reloading..."
-    exec zsh
+    exit 0
 fi
 
 # ─── Mode direct ───
@@ -97,4 +97,4 @@ apply_theme "$THEME"
 
 # ─── Relancer zsh pour appliquer le thème immédiatement ───
 echo "shell reloading..."
-exec zsh
+exit 0

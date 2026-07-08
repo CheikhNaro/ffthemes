@@ -54,7 +54,7 @@ PAD_TOP=0
 if command -v identify &>/dev/null; then
     IMG_H=$(identify -format "%h" "$IMAGE_PATH" 2>/dev/null | head -1)
     if [ -n "$IMG_H" ] && [ "$IMG_H" -lt 400 ]; then
-        PAD_TOP=1
+        PAD_TOP=0
     fi
 fi
 
@@ -62,5 +62,9 @@ fi
 sed -i "s|\"source\": \".*\"|\"source\": \"$IMAGE_SOURCE\"|" "$CONFIG_FILE"
 sed -i "s|\"top\": [0-9]*|\"top\": $PAD_TOP|" "$CONFIG_FILE"
 
-fastfetch
-
+# ─── Lancement ───
+if [[ -n "$KITTY_WINDOW_ID" ]]; then
+    fastfetch --logo-type kitty
+else
+    fastfetch --logo-type iterm
+fi
