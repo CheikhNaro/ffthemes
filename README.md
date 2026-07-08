@@ -1,3 +1,12 @@
+## GNOME
+
+https://github.com/user-attachments/assets/43485a87-a9a7-4221-a5d7-df082bb19041
+
+## Hyprland
+
+https://github.com/user-attachments/assets/acdf7d2c-8954-4740-a73c-a4460cd5ffea
+
+
 # Fastfetch Anime Themes
 
 A collection of Fastfetch themes with an interactive selector and sequential image display.
