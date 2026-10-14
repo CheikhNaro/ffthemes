@@ -6,6 +6,7 @@ THEME_FILE="$CONFIG_DIR/current_theme"
 STATE_FILE="$CONFIG_DIR/current_state"
 
 get_themes() {
+    echo "asciiart"
     for dir in "$THEMES_DIR"/*/; do
         [ -d "$dir" ] || continue
         count=$(find "$dir" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) 2>/dev/null | wc -l)
@@ -15,6 +16,10 @@ get_themes() {
 
 find_theme() {
     local input="$1"
+    if [ "${input,,}" = "asciiart" ]; then
+        echo "asciiart"
+        return 0
+    fi
     for dir in "$THEMES_DIR"/*/; do
         [ -d "$dir" ] || continue
         name=$(basename "$dir")
@@ -29,10 +34,16 @@ find_theme() {
 apply_theme() {
     local THEME="$1"
     local count
-    count=$(find "$THEMES_DIR/$THEME" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | wc -l)
-    echo "$THEME" > "$THEME_FILE"
-    rm -f "$STATE_FILE"
-    echo "Theme applied → $THEME ($count images)"
+    if [ "$THEME" = "asciiart" ]; then
+        echo "$THEME" > "$THEME_FILE"
+        rm -f "$STATE_FILE"
+        echo "Theme applied → $THEME (text)"
+    else
+        count=$(find "$THEMES_DIR/$THEME" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | wc -l)
+        echo "$THEME" > "$THEME_FILE"
+        rm -f "$STATE_FILE"
+        echo "Theme applied → $THEME ($count images)"
+    fi
 }
 
 # ─── Mode interactif ───
@@ -46,11 +57,19 @@ if [ -z "$1" ]; then
 
     options=()
     for theme in $(get_themes); do
-        count=$(find "$THEMES_DIR/$theme" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | wc -l)
-        if [ "$theme" = "$current" ]; then
-            options+=("$theme  ($count images) ✓")
+        if [ "$theme" = "asciiart" ]; then
+            if [ "$theme" = "$current" ]; then
+                options+=("$theme  (text) ✓")
+            else
+                options+=("$theme  (text)")
+            fi
         else
-            options+=("$theme  ($count images)")
+            count=$(find "$THEMES_DIR/$theme" -maxdepth 1 \( -name "*.png" -o -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | wc -l)
+            if [ "$theme" = "$current" ]; then
+                options+=("$theme  ($count images) ✓")
+            else
+                options+=("$theme  ($count images)")
+            fi
         fi
     done
 

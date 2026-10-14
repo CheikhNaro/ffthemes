@@ -38,10 +38,12 @@ A collection of Fastfetch themes with an interactive selector and sequential ima
 3. **Add aliases to your shell configuration:**
    Add the following lines to your `~/.bashrc` or `~/.zshrc`:
    ```bash
-   alias fastfetchTheme="$HOME/.config/fastfetch/fftheme.sh"
-   alias fft=fastfetchTheme
-   alias ff="$HOME/.config/fastfetch/launch.sh"
-   alias fastfetch='ff'
+    alias fastfetchTheme="$HOME/.config/fastfetch/fftheme.sh"
+    alias fft=fastfetchTheme
+    alias ff="$HOME/.config/fastfetch/launch.sh"
+    alias fastfetch='ff'
+    alias logo_toggle="$HOME/.config/fastfetch/logo_toggle.sh"
+    alias logofix=logo_toggle
    ```
 
 4. **Change theme:**
@@ -52,7 +54,26 @@ A collection of Fastfetch themes with an interactive selector and sequential ima
 ## 🛠️ Usage
 
 - **`fft`** or **`fastfetchTheme`**: Open the theme selector.
-- **`ff`** or **`fastfetch`**: Launch Fastfetch with a rotating image.
+- **`ff`** or **`fastfetch`**: Lance Fastfetch avec rotation d'images.
+- **`logo_toggle`** ou **`logofix`**: Alterne entre mode rotation et mode logo fixe.
+
+## 🔄 Mode logo fixe
+
+Pour afficher toujours le même logo à chaque ouverture de terminal :
+
+```bash
+logo_toggle
+```
+
+Cela bascule en **mode fixe** : le logo actuel reste figé. Relance ton terminal pour voir le changement.
+
+Pour réactiver la **rotation**, relance :
+
+```bash
+logo_toggle
+```
+
+Le mode est sauvegardé automatiquement d'un lancement à l'autre grâce au fichier `.fixed_logo`.
 
 ## ✨ Create your own theme
 
