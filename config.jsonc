@@ -7,77 +7,72 @@
       "top": 1,
       "left": 0,
       "right": 1
+    },
+    "color": {
+      "1": "#63ffff",
+      "2": "#63c6c6"
     }
   },
   "display": {
-    "separator": " "
+    "separator": " ",
+    "color": {
+      "keys": "#ffffff",
+      "title": "#c6c6c6"
+    },
+    "percent": {
+      "color": {
+        "green": "#e2e2e2",
+        "yellow": "#474747",
+        "red": "#ffb4ab"
+      }
+    }
   },
   "modules": [
     {
       "key": "┏━━━━━━━━┓",
       "type": "custom"
     },
-    // {
-    //   "key": "┃ {#31} USR  {#keys}┃",
-    //   "type": "title",
-    //   "format": "{user-name}"
-    // },
     {
-      "key": "┃ {#34}{icon} Os   {#keys}┃",
+      "key": "┃ {#34} Os   {#keys}┃",
       "type": "os",
-      "format": "Fedora"
+      "format": "Fedora minimal 44"
     },
     {
-      "key": "┃ {#35} ker  {#keys}┃",
-      // "type": "kernel",
-      // "format": "{release}"
+      "key": "┃ {#35} ker  {#keys}┃",
       "type": "command",
       "text": "uname -r | cut -d'-' -f1"
     },
     {
-      "key": "┃ {#36}󰧨 wm   {#keys}┃",
+      "key": "┃ {#36} wm   {#keys}┃",
       "type": "wm",
-      "format": "{1}"      
+      "format": "{1}"
     },
     {
-     "key": "┃ {#31} term {#keys}┃",
-     "type": "terminal",
-     "format": "{1}" 
+      "key": "┃ {#31} term {#keys}┃",
+      "type": "terminal",
+      "format": "{1}"
     },
     {
-      "key": "┃ {#31}󱆃 Shll {#keys}┃",
+      "key": "┃ {#31} shll {#keys}┃",
       "type": "shell",
-      "format": "{1}" 
+      "format": "{1}"
     },
-    // {
-    //   "key": "┃ {#34}󰉉 disk {#keys}┃",
-    //   "type": "disk",
-    //   "folders": "/",
-    //   "format": "{1} / {2} ({3})"
-    // },
     {
-      "key": "┃ {#33}󰅐 Up   {#keys}┃",
+      "key": "┃ {#33}󰞌 up   {#keys}┃",
       "type": "uptime"
     },
     {
-      "key": "┃ {#36}󰍛 mem  {#keys}┃",
-      "type": "memory",
-      "percent": {"type": 8}
+      "key": "┃ {#32} Age  {#keys}┃",
+      "type": "command",
+      "text": "echo $(( ($(date +%s) - $(stat -c %W / 2>/dev/null || stat -c %Y /)) / 86400 )) days"
     },
-    // {
-    //   "key": "┃ {#99}󰏖 pkg  {#keys}┃",
-    //   "type": "packages",
-    //   "format": "{rpm} rpm, {flatpak-system} flatpak",
-    // },
-    // {
-    //   "key": "┣━━━━━━━━┫",
-    //   "type": "custom",
-    // },
-    // {
-    //   "key": "┃ {#39} clrs {#keys}┃",
-    //   "type": "colors",
-    //   "symbol": "circle",
-    // },
+    {
+      "key": "┃ {#36}󰟜 mem  {#keys}┃",
+      "type": "memory",
+      "percent": {
+        "type": 8
+      }
+    },
     {
       "key": "┗━━━━━━━━┛",
       "type": "custom"
