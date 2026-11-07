@@ -57,22 +57,6 @@ A collection of Fastfetch themes with an interactive selector and sequential ima
 - **`ff`** or **`fastfetch`**: Lance Fastfetch avec rotation d'images.
 - **`logo_toggle`** ou **`logofix`**: Alterne entre mode rotation et mode logo fixe.
 
-## 🔄 Mode logo fixe
-
-Pour afficher toujours le même logo à chaque ouverture de terminal :
-
-```bash
-logo_toggle
-```
-
-Cela bascule en **mode fixe** : le logo actuel reste figé. Relance ton terminal pour voir le changement.
-
-Pour réactiver la **rotation**, relance :
-
-```bash
-logo_toggle
-```
-
 Le mode est sauvegardé automatiquement d'un lancement à l'autre grâce au fichier `.fixed_logo`.
 
 ## ✨ Create your own theme
